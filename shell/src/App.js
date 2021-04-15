@@ -112,7 +112,7 @@ function App() {
       }}
     >
       <h1>Dynamic System Host</h1>
-      <h2>App 1</h2>
+      <h2>Shell</h2>
       <p>
         The Dynamic System will take advantage Module Federation{" "}
         <strong>remotes</strong> and <strong>exposes</strong>. It will no load

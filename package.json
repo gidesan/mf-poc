@@ -1,0 +1,29 @@
+{
+  "name": "mf-poc",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "*"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "5.3.0",
+    "cross-spawn": "7.0.3",
+    "husky": "4.3.8",
+    "jest": "26.6.3",
+    "lerna": "3.22.1",
+    "prettier": "2.2.1",
+    "pretty-quick": "3.1.0"
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap --ignore-scripts",
+    "start": "lerna run --parallel start",
+    "build": "lerna run --parallel build",
+    "serve": "lerna run --parallel serve",
+    "clean": "lerna run --parallel clean",
+    "prettier": "prettier --write \"**/*.{js,json,md,ts,tsx}\"",
+    "prettier:check": "prettier --list-different \"**/*.{js,json,md,ts,tsx}\"",
+    "test": "jest test/index.spec.js --maxWorkers=2"
+  }
+}

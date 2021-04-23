@@ -21,7 +21,7 @@ export default function System(props) {
   });
 
   if (!props.system) {
-    return <h2>Not system specified</h2>;
+    return <h2>No system specified</h2>;
   }
 
   if (!ready) {

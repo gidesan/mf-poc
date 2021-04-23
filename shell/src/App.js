@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from 'react';
+import request from './request';
 
 function loadComponent(scope, module) {
   return async () => {
     // Initializes the share scope. This fills it with known provided modules from this build and all remotes
-    await __webpack_init_sharing__("default");
+    await __webpack_init_sharing__('default');
 
     const container = window[scope]; // or get the container somewhere else
     // Initialize the container, it may provide shared modules
@@ -23,10 +24,10 @@ const useDynamicScript = (args) => {
       return;
     }
 
-    const element = document.createElement("script");
+    const element = document.createElement('script');
 
     element.src = args.url;
-    element.type = "text/javascript";
+    element.type = 'text/javascript';
     element.async = true;
 
     setReady(false);
@@ -88,19 +89,31 @@ function System(props) {
 function App() {
   const [system, setSystem] = React.useState(undefined);
 
+  useEffect(() => {
+    async function fetchConfig() {
+      try {
+        const config = await request('/config');
+        console.log({ config });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchConfig();
+  }, []);
+
   function setApp2() {
     setSystem({
-      url: "http://localhost:3002/remoteEntry.js",
-      scope: "app2",
-      module: "./Widget",
+      url: 'http://localhost:3002/remoteEntry.js',
+      scope: 'app2',
+      module: './Widget',
     });
   }
 
   function setApp3() {
     setSystem({
-      url: "http://localhost:3003/remoteEntry.js",
-      scope: "app3",
-      module: "./Widget",
+      url: 'http://localhost:3003/remoteEntry.js',
+      scope: 'app3',
+      module: './Widget',
     });
   }
 
@@ -114,13 +127,13 @@ function App() {
       <h1>Dynamic System Host</h1>
       <h2>Shell</h2>
       <p>
-        The Dynamic System will take advantage Module Federation{" "}
+        The Dynamic System will take advantage Module Federation{' '}
         <strong>remotes</strong> and <strong>exposes</strong>. It will no load
         components that have been loaded already.
       </p>
       <button onClick={setApp2}>Load App 2 Widget</button>
       <button onClick={setApp3}>Load App 3 Widget</button>
-      <div style={{ marginTop: "2em" }}>
+      <div style={{ marginTop: '2em' }}>
         <System system={system} />
       </div>
     </div>

@@ -17,6 +17,22 @@ function App() {
     fetchConfig();
   }, []);
 
+  const install = async() => {
+    const plugin = await request('/plugins', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        url: 'http://localhost:3003/remoteEntry.js',
+        scope: 'app3',
+        module: './Widget',
+      }),
+    });
+    setPlugins([...plugins, plugin]);
+  }
+
   return (
     <div
       style={{
@@ -25,6 +41,8 @@ function App() {
       }}
     >
       <h1>Dynamic Plugin System</h1>
+
+      <button onClick={install}>Install plugin</button>
       
       {plugins.map((plugin) => (<System key={plugin.scope} system={plugin} />))}
     </div>

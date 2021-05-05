@@ -1,21 +1,30 @@
 import { rest } from 'msw';
+import { db } from './db';
+
+// seeding
+db.plugin.create({
+  url: 'http://localhost:3002/remoteEntry.js',
+  scope: 'app2',
+  module: './Widget',
+});
 
 export const handlers = [
+  rest.post('/plugins', (req, res, ctx) => {
+    const plugin = db.plugin.create(req.body);
+    return res(ctx.json(plugin));
+  }),
+
   rest.get('/plugins', (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json([
-        {
-          url: 'http://localhost:3002/remoteEntry.js',
-          scope: 'app2',
-          module: './Widget',          
-        },
-        {
-          url: 'http://localhost:3003/remoteEntry.js',
-          scope: 'app3',
-          module: './Widget',          
-        },        
-      ])
-    );
+    const plugins = db.plugin.getAll();
+    return res(ctx.json(plugins));
   }),
 ];
+
+
+
+
+// {
+//   url: 'http://localhost:3002/remoteEntry.js',
+//   scope: 'app2',
+//   module: './Widget',          
+// },

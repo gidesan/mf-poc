@@ -1,6 +1,6 @@
-export default async function request(url) {
+export default async function request(url, options) {
   try {
-    const response = await window.fetch(`${url}`);
+    const response = await window.fetch(url, options);
     const json = await response.json();
     if (response.ok) {
       return json;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import request from './request';
-import System from './System';
+import DynamicComponent from './DynamicComponent';
 
 function App() {
   const [plugins, setPlugins] = useState([]);
@@ -44,7 +44,7 @@ function App() {
 
       <button onClick={install}>Install plugin</button>
       
-      {plugins.map((plugin) => (<System key={plugin.scope} system={plugin} />))}
+      {plugins.map((plugin) => (<DynamicComponent key={plugin.scope} config={plugin} />))}
     </div>
   );
 }

@@ -15,29 +15,29 @@ function loadComponent(scope, module) {
   };
 }
 
-export default function System(props) {
+export default function DynamicComponent(props) {
   const { ready, failed } = useDynamicScript({
-    url: props.system && props.system.url,
+    url: props.config && props.config.url,
   });
 
-  if (!props.system) {
-    return <h2>No system specified</h2>;
+  if (!props.config) {
+    return <h2>No config specified</h2>;
   }
 
   if (!ready) {
-    return <h2>Loading dynamic script: {props.system.url}</h2>;
+    return <h2>Loading dynamic script: {props.config.url}</h2>;
   }
 
   if (failed) {
-    return <h2>Failed to load dynamic script: {props.system.url}</h2>;
+    return <h2>Failed to load dynamic script: {props.config.url}</h2>;
   }
 
   const Component = React.lazy(
-    loadComponent(props.system.scope, props.system.module)
+    loadComponent(props.config.scope, props.config.module)
   );
 
   return (
-    <React.Suspense fallback="Loading System">
+    <React.Suspense fallback="Loading Dynamic Component">
       <Component />
     </React.Suspense>
   );

@@ -1,12 +1,7 @@
 import { rest } from 'msw';
-import { db } from './db';
+import { db, seed } from './db';
 
-// seeding
-db.plugin.create({
-  url: 'http://localhost:3002/remoteEntry.js',
-  scope: 'app2',
-  module: './Widget',
-});
+seed();
 
 export const handlers = [
   rest.post('/plugins', (req, res, ctx) => {
@@ -19,12 +14,3 @@ export const handlers = [
     return res(ctx.json(plugins));
   }),
 ];
-
-
-
-
-// {
-//   url: 'http://localhost:3002/remoteEntry.js',
-//   scope: 'app2',
-//   module: './Widget',          
-// },

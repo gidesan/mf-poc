@@ -7,3 +7,11 @@ export const db = factory({
     module: () => '',
   },
 })
+
+export const seed = () => {
+  db.plugin.create({
+    url: 'http://localhost:3002/remoteEntry.js',
+    scope: 'app2',
+    module: './Widget',
+  });  
+}

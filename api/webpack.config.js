@@ -7,7 +7,7 @@ module.exports = {
   mode: "development",
   target: "web",
   devServer: {
-    contentBase: [path.join(__dirname, "dist"), path.join(__dirname, "public")],
+    contentBase: [path.join(__dirname, "dist")],
     port: 3004,
   },
   output: {

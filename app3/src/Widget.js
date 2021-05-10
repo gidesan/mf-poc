@@ -2,9 +2,6 @@ import React from "react";
 import moment from "moment";
 
 export default function Widget() {
-  React.useEffect(() => {
-    console.log("hooks");
-  }, []);
   return (
     <div
       style={{

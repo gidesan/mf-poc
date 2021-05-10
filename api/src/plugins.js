@@ -12,7 +12,6 @@ export const addPlugin = async(config) => {
 };
 
 export const fetchPlugins = async() => {
-  console.log('fetchPlugins called')
   return request('/plugins');
 }
 

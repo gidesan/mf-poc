@@ -28,7 +28,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "app1",
+      name: "api",
       remotes: {
         api: 'api@http://localhost:3004/remoteEntry.js',
       },      

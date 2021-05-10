@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import request from './request';
 import DynamicComponent from './DynamicComponent';
+
+const pluginsImport = import('api/plugins');
 
 function App() {
   const [plugins, setPlugins] = useState([]);
@@ -8,9 +9,11 @@ function App() {
   useEffect(() => {
     async function fetchConfig() {
       try {
-        const plugins = await request('/plugins');
+        const { fetchPlugins } = await pluginsImport;
+        const plugins = await fetchPlugins();
         setPlugins(plugins);
       } catch (err) {
+        console.error(err)
         setPlugins([]);
       }
     }
@@ -18,19 +21,19 @@ function App() {
   }, []);
 
   const install = async() => {
-    const plugin = await request('/plugins', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        url: 'http://localhost:3003/remoteEntry.js',
-        scope: 'app3',
-        module: './Widget',
-      }),
-    });
-    setPlugins([...plugins, plugin]);
+    // const plugin = await request('/plugins', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     url: 'http://localhost:3003/remoteEntry.js',
+    //     scope: 'app3',
+    //     module: './Widget',
+    //   }),
+    // });
+    // setPlugins([...plugins, plugin]);
   }
 
   return (

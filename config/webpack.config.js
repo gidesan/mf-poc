@@ -35,7 +35,9 @@ module.exports = {
       name: "config",
       filename: "remoteEntry.js",
       exposes: {
-        "./App": "./src/App",
+        "./ModulesConfig": "./src/ModulesConfig",
+        "./InstalledModulesContext": "./src/InstalledModulesContext",
+        "./InstalledModulesProvider": "./src/InstalledModulesProvider",
       },      
       remotes: {
         api: 'api@http://localhost:3004/remoteEntry.js',

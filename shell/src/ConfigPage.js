@@ -1,10 +1,10 @@
 import React from "react";
 
-const Config = React.lazy(() => import("config/App"));
+const RemoteModulesConfig = React.lazy(() => import("config/ModulesConfig"));
 
 const ConfigPage = () => (
   <React.Suspense fallback="Loading Page...">
-    <Config />
+    <RemoteModulesConfig />
   </React.Suspense>
 );
 

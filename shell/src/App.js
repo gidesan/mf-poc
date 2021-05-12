@@ -1,46 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import DynamicComponent from './DynamicComponent';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import ConfigPage from "./ConfigPage";
+import Home from "./Home";
 
-const pluginsImport = import('api/plugins');
-
-function App() {
-  const [plugins, setPlugins] = useState([]);
-  
-
-  useEffect(() => {
-    async function fetchConfig() {
-      try {
-        const { fetchPlugins } = await pluginsImport;
-        const plugins = await fetchPlugins();
-        setPlugins(plugins);
-      } catch (err) {
-        console.error(err)
-        setPlugins([]);
-      }
-    }
-    fetchConfig();
-  }, []);
-
-  const install = async() => {
-    const { installPlugin } = await pluginsImport;
-    const plugin = await installPlugin();
-    setPlugins([...plugins, plugin]);
-  }
-
+export default function App() {
   return (
-    <div
-      style={{
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-      }}
-    >
-      <h1>Dynamic Plugin System</h1>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/config">Config</Link>
+            </li>
+          </ul>
+        </nav>
 
-      <button onClick={install}>Install plugin</button>
-
-      {plugins.map((plugin) => (<DynamicComponent key={plugin.scope} config={plugin} />))}
-    </div>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/config">
+            <ConfigPage />
+          </Route>
+          <Route path="/modules/:id">
+            modulesId
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+
+

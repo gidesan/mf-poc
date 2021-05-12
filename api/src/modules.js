@@ -1,17 +1,21 @@
 import request from './request';
 
 export const installModule = async(id) => {
-  return request(`/modules/install/${id}`);
+  return request(`api/modules/install/${id}`);
 }
 
 export const uninstallModule = async(id) => {
-  return request(`/modules/uninstall/${id}`);
+  return request(`api/modules/uninstall/${id}`);
+}
+
+export const fetchModuleById = async(id) => {
+  return request(`api/modules/id/${id}`);
 }
 
 export const fetchModules = async() => {
-  return request('/modules/all');
+  return request('api/modules/all');
 }
 
 export const fetchInstalledModules = async() => {
-  return request('/modules/installed');
+  return request('api/modules/installed');
 }

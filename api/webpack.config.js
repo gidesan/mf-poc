@@ -31,6 +31,7 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./plugins": "./src/plugins",
+        "./modules": "./src/modules",
       },
       shared: {
         moment: deps.moment,

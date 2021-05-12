@@ -31,6 +31,7 @@ module.exports = {
       name: "api",
       remotes: {
         api: 'api@http://localhost:3004/remoteEntry.js',
+        config: 'config@http://localhost:3005/remoteEntry.js',
       },      
       // adds react as shared module
       // version is inferred from package.json

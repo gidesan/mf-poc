@@ -22,9 +22,13 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           presets: ["@babel/preset-react"],
+          plugins: ['@babel/plugin-syntax-top-level-await'],
         },
       },
     ],
+  },
+  experiments: {
+    topLevelAwait: true,
   },
   plugins: [
     new ModuleFederationPlugin({

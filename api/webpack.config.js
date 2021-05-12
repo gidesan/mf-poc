@@ -30,7 +30,6 @@ module.exports = {
       name: "api",
       filename: "remoteEntry.js",
       exposes: {
-        "./plugins": "./src/plugins",
         "./modules": "./src/modules",
       },
       shared: {

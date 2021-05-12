@@ -28,6 +28,7 @@ export default function App() {
 
   return (
     <ul>
+      Installed Modules
       {modules.map(module => (
         <li key={module.id}>
           {module.id}

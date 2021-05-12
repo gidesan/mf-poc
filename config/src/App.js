@@ -19,15 +19,28 @@ export default function App() {
     fetchConfig();
   }, []);  
 
-  const handleChange = (event) => {
-    // setActivePlugins({...activePlugins, [event.target.name]: event.target.checked});    
+  const handleChange = async(event) => {
+    console.log(event.target.checked);
+    
+    const { fetchModules, installModule, uninstallModule } = await modulesImport;
+    await event.target.checked ? uninstallModule(event.target.name) : installModule(event.target.name);
+    const modules = await fetchModules();
+    setModules(modules);
   };
 
   return (
-    <form>
-      {JSON.stringify(modules)}      
-      {/* app2 <input name="app2" type="checkbox" value={activePlugins.app2} onChange={handleChange} />        
-      app3 <input name="app3" type="checkbox" value={activePlugins.app3} onChange={handleChange} />         */}
-    </form>
+    <ul>
+      {modules.map(module => (
+        <li key={module.id}>
+          {module.id}
+          <input
+            name={module.id}            
+            type="checkbox"
+            checked={module.installed}
+            onChange={handleChange}
+          />
+        </li>
+      ))}
+    </ul>
   );  
 }

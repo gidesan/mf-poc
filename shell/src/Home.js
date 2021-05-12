@@ -7,7 +7,7 @@ export default function Home() {
   const [modules, setModules] = useState([]);
   
   useEffect(() => {
-    async function fetchConfig() {
+    async function performFetch() {
       try {
         const { fetchInstalledModules } = await federatedImport;
         const modules = await fetchInstalledModules();
@@ -17,14 +17,14 @@ export default function Home() {
         setModules([]);
       }
     }
-    fetchConfig();
+    performFetch();
   }, []);
   
   return (
     <div>
       <h1>AppBuilder new-gen PoC</h1>
 
-      {modules.map((plugin) => (<DynamicComponent key={plugin.scope} config={plugin} />))}
+      {modules.map((module) => (<DynamicComponent key={module.scope} config={module} />))}
     </div>
   );
 }

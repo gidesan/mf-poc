@@ -20,8 +20,6 @@ export default function App() {
   }, []);  
 
   const handleChange = async(event) => {
-    console.log(event.target.checked);
-    
     const { fetchModules, installModule, uninstallModule } = await modulesImport;
     await event.target.checked ? uninstallModule(event.target.name) : installModule(event.target.name);
     const modules = await fetchModules();

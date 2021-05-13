@@ -11,7 +11,6 @@ export default function ModulesConfig() {
 
   return (
     <ul>
-      {JSON.stringify(modules)}
       Installed Modules
       {modules.map(module => (
         <li key={module.id}>

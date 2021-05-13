@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 
 import ConfigPage from "./ConfigPage";
-import Home from "./Home";
 import InstalledModulesProvider from "./InstalledModulesProvider";
 import ModulePage from "./ModulePage";
 import ModulesMenu from './ModulesMenu';
@@ -37,7 +36,9 @@ export default function App() {
               <ModulePage />
             </Route>
             <Route path="/">
-              <Home />
+              <div>
+                <h1>MF-enabled app architecture PoC</h1>
+              </div>
             </Route>
           </Switch>
         </div>

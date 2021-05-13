@@ -1,8 +1,6 @@
-import React from "react";
-import ExtendedBox from "./ExtendedBox";
+import React from 'react';
+import ExtendedBox from './ExtendedBox';
 
 export default function App() {
-  return (
-    <ExtendedBox />
-  );
+  return <ExtendedBox />;
 }

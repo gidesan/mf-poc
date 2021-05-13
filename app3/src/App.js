@@ -1,5 +1,5 @@
-import LocalButton from "./Widget";
-import React, { useEffect } from "react";
+import LocalButton from './Widget';
+import React, { useEffect } from 'react';
 
 function App() {
   return (
@@ -9,6 +9,6 @@ function App() {
       <LocalButton />
     </div>
   );
-};
+}
 
 export default App;

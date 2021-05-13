@@ -13,14 +13,14 @@ export default function InstalledModulesProvider({ children }) {
       try {
         const apiModules = await remoteApiModules;
         const { fetchModules } = apiModules;
-        
-        installModule.current = async(id) => {
+
+        installModule.current = async (id) => {
           await apiModules.installModule(id);
           const modules = await fetchModules();
           setModules(modules);
         };
 
-        uninstallModule.current = async(id) => {
+        uninstallModule.current = async (id) => {
           await apiModules.uninstallModule(id);
           const modules = await fetchModules();
           setModules(modules);
@@ -29,7 +29,7 @@ export default function InstalledModulesProvider({ children }) {
         const modules = await fetchModules();
         setModules(modules);
       } catch (err) {
-        console.error(err)
+        console.error(err);
         setModules([]);
       }
     }
@@ -37,13 +37,15 @@ export default function InstalledModulesProvider({ children }) {
   }, []);
 
   return (
-    <InstalledModulesContext.Provider value={{
-      modules,
-      installedModules: modules.filter(module => module.installed),
-      installModule: installModule.current,
-      uninstallModule: uninstallModule.current,
-    }}>
+    <InstalledModulesContext.Provider
+      value={{
+        modules,
+        installedModules: modules.filter((module) => module.installed),
+        installModule: installModule.current,
+        uninstallModule: uninstallModule.current,
+      }}
+    >
       {children}
     </InstalledModulesContext.Provider>
-  );  
+  );
 }

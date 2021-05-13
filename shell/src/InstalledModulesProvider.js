@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-const RemoteInstalledModulesProvider = React.lazy(() => import("config/InstalledModulesProvider"));
+const RemoteInstalledModulesProvider = React.lazy(() =>
+  import('config/InstalledModulesProvider')
+);
 
-const InstalledModulesProvider = ({children}) => (
+const InstalledModulesProvider = ({ children }) => (
   <React.Suspense fallback="Loading...">
-    <RemoteInstalledModulesProvider>
-      {children}
-    </RemoteInstalledModulesProvider>
+    <RemoteInstalledModulesProvider>{children}</RemoteInstalledModulesProvider>
   </React.Suspense>
 );
 

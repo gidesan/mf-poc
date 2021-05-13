@@ -1,4 +1,4 @@
-import { factory, primaryKey } from '@mswjs/data'
+import { factory, primaryKey } from '@mswjs/data';
 
 export const db = factory({
   module: {
@@ -7,8 +7,8 @@ export const db = factory({
     scope: () => '',
     url: () => '',
     module: () => '',
-  },  
-})
+  },
+});
 
 export const seed = () => {
   [
@@ -26,5 +26,5 @@ export const seed = () => {
       scope: 'app3',
       module: './Widget',
     },
-  ].forEach((module) => db.module.create(module));  
-}
+  ].forEach((module) => db.module.create(module));
+};

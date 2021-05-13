@@ -1,4 +1,4 @@
-  import { rest } from 'msw';
+import { rest } from 'msw';
 import { db, seed } from './db';
 
 seed();
@@ -20,9 +20,9 @@ export const handlers = [
       data: {
         installed: true,
       },
-    })        
+    });
     return res(ctx.json(updatedModule));
-  }),  
+  }),
 
   rest.get('/api/modules/uninstall/:id', (req, res, ctx) => {
     const { id } = req.params;
@@ -35,7 +35,7 @@ export const handlers = [
       data: {
         installed: false,
       },
-    })        
+    });
     return res(ctx.json(updatedModule));
   }),
 
@@ -51,7 +51,7 @@ export const handlers = [
     });
 
     if (!module || !module.installed) {
-      return res(ctx.json({}));  
+      return res(ctx.json({}));
     }
     return res(ctx.json(module));
   }),

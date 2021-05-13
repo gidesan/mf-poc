@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class Extend extends React.Component {
   constructor(props) {
@@ -13,7 +13,11 @@ class Extend extends React.Component {
   componentDidCatch() {}
 
   render() {
-    const { defaultComponent: DefaultComponent, extendedComponent: ExtendedComponent, ...rest } = this.props;
+    const {
+      defaultComponent: DefaultComponent,
+      extendedComponent: ExtendedComponent,
+      ...rest
+    } = this.props;
     if (this.state.hasError) {
       return (
         <React.Suspense fallback={<div>Loading default component...</div>}>

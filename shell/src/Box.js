@@ -1,10 +1,10 @@
-import React from "react";
-import DefaultBox from "./DefaultBox";
-import Extend from "./Extend";
+import React from 'react';
+import DefaultBox from './DefaultBox';
+import Extend from './Extend';
 
-const ExtendedBox = React.lazy(() => import("extensions/ExtendedBox"));
+const ExtendedBox = React.lazy(() => import('extensions/ExtendedBox'));
 
-export default function Box( { name }) {
+export default function Box({ name }) {
   return (
     <Extend
       defaultComponent={DefaultBox}

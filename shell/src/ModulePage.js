@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import DynamicComponent from "./DynamicComponent";
+import DynamicComponent from './DynamicComponent';
 
 const remoteApiModules = import('api/modules');
 
@@ -21,4 +21,4 @@ export default function ModulePage() {
   }, [id]);
 
   return !isLoading && <DynamicComponent config={module} />;
-};
+}

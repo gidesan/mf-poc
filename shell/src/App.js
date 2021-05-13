@@ -1,17 +1,11 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Box from "./Box";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Box from './Box';
 
-import ConfigPage from "./ConfigPage";
-import InstalledModulesProvider from "./InstalledModulesProvider";
-import ModulePage from "./ModulePage";
+import ConfigPage from './ConfigPage';
+import InstalledModulesProvider from './InstalledModulesProvider';
+import ModulePage from './ModulePage';
 import ModulesMenu from './ModulesMenu';
-
 
 export default function App() {
   return (
@@ -49,6 +43,3 @@ export default function App() {
     </Router>
   );
 }
-
-
-

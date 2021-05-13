@@ -37,17 +37,6 @@ export const handlers = [
       },
     })        
     return res(ctx.json(updatedModule));
-  }),   
-
-  rest.get('/api/modules/installed', (req, res, ctx) => {
-    const modules = db.module.findMany({
-      where: {
-        installed: {
-          equals: true,
-        },
-      },
-    });
-    return res(ctx.json(modules));
   }),
 
   rest.get('/api/modules/id/:id', (req, res, ctx) => {

@@ -15,7 +15,3 @@ export const fetchModuleById = async(id) => {
 export const fetchModules = async() => {
   return request('api/modules/all');
 }
-
-export const fetchInstalledModules = async() => {
-  return request('api/modules/installed');
-}

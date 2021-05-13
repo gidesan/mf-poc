@@ -15,10 +15,10 @@ export default function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/">home</Link>
               </li>
               <li>
-                <Link to="/config">Config</Link>
+                <Link to="/config">config</Link>
               </li>
               <ModulesMenu />
             </ul>

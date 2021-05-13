@@ -5,11 +5,13 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Box from "./Box";
 
 import ConfigPage from "./ConfigPage";
 import InstalledModulesProvider from "./InstalledModulesProvider";
 import ModulePage from "./ModulePage";
 import ModulesMenu from './ModulesMenu';
+
 
 export default function App() {
   return (
@@ -38,6 +40,7 @@ export default function App() {
             <Route path="/">
               <div>
                 <h1>App architecture PoC based on Module Federation</h1>
+                <Box name="Team" />
               </div>
             </Route>
           </Switch>

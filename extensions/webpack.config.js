@@ -8,8 +8,8 @@ module.exports = {
   mode: "development",
   target: "web",
   devServer: {
-    contentBase: [path.join(__dirname, "dist"), path.join(__dirname, "public")],
-    port: 3001,
+    contentBase: [path.join(__dirname, "dist")],
+    port: 3006,
   },
   output: {
     publicPath: "auto",
@@ -22,7 +22,6 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           presets: ["@babel/preset-react"],
-          plugins: ['@babel/plugin-syntax-top-level-await'],
         },
       },
     ],
@@ -32,11 +31,10 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "api",
-      remotes: {
-        api: 'api@http://localhost:3004/remoteEntry.js',
-        config: 'config@http://localhost:3005/remoteEntry.js',
-        extensions: 'extensions@http://localhost:3006/remoteEntry.js',
+      name: "extensions",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./ExtendedBox": "./src/ExtendedBox",
       },      
       // adds react as shared module
       // version is inferred from package.json

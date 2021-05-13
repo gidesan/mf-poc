@@ -13,17 +13,17 @@ export const db = factory({
 export const seed = () => {
   [
     {
-      id: 'app2',
+      id: 'feature1',
       installed: true,
       url: 'http://localhost:3002/remoteEntry.js',
-      scope: 'app2',
+      scope: 'feature1',
       module: './Widget',
     },
     {
-      id: 'app3',
+      id: 'feature2',
       installed: false,
       url: 'http://localhost:3003/remoteEntry.js',
-      scope: 'app3',
+      scope: 'feature2',
       module: './Widget',
     },
   ].forEach((module) => db.module.create(module));

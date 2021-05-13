@@ -27,7 +27,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'app2',
+      name: 'feature1',
       filename: 'remoteEntry.js',
       exposes: {
         './Widget': './src/Widget',

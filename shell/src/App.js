@@ -37,7 +37,7 @@ export default function App() {
             </Route>
             <Route path="/">
               <div>
-                <h1>MF-enabled app architecture PoC</h1>
+                <h1>App architecture PoC based on Module Federation</h1>
               </div>
             </Route>
           </Switch>

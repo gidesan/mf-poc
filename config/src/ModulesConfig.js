@@ -5,8 +5,8 @@ export default function ModulesConfig() {
 
   const { modules, installModule, uninstallModule } = useContext(InstalledModulesContext);
   
-  const handleChange = async(event) => {
-    await event.target.checked ? installModule(event.target.name) : uninstallModule(event.target.name);
+  const handleChange = (event) => {
+    event.target.checked ? installModule(event.target.name) : uninstallModule(event.target.name);
   };
 
   return (

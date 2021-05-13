@@ -50,10 +50,10 @@ export const handlers = [
     return res(ctx.json(modules));
   }),
 
-  rest.get('/api/modules/:id', (req, res, ctx) => {
+  rest.get('/api/modules/id/:id', (req, res, ctx) => {
     const { id } = req.params;
 
-    const module = db.module.findMany({
+    const module = db.module.findFirst({
       where: {
         id: {
           equals: id,
@@ -64,6 +64,6 @@ export const handlers = [
     if (!module || !module.installed) {
       return res(ctx.json({}));  
     }
-    return res(ctx.json(modules));
+    return res(ctx.json(module));
   }),
 ];

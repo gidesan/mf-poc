@@ -13,7 +13,7 @@ export default function Home() {
         const modules = await fetchInstalledModules();
         setModules(modules);
       } catch (err) {
-        console.error(err)
+        console.error(err);
         setModules([]);
       }
     }
@@ -24,7 +24,7 @@ export default function Home() {
     <div>
       <h1>AppBuilder new-gen PoC</h1>
 
-      {modules.map((module) => (<DynamicComponent key={module.scope} config={module} />))}
+      {modules.map((module) => (<DynamicComponent key={module.id} config={module} />))}
     </div>
   );
 }

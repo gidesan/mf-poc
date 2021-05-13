@@ -9,11 +9,10 @@ export default function ModulesMenu() {
   return installedModules.map((module) => (
     <li key={module.id}>
       <Link
-        to={`/modules/${module.id}`}
+        to={`/${module.id}`}
       >
         {module.id}
       </Link>
     </li>
   ))
 }
-

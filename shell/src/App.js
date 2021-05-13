@@ -9,6 +9,7 @@ import {
 import ConfigPage from "./ConfigPage";
 import Home from "./Home";
 import InstalledModulesProvider from "./InstalledModulesProvider";
+import ModulePage from "./ModulePage";
 import ModulesMenu from './ModulesMenu';
 
 export default function App() {
@@ -32,8 +33,8 @@ export default function App() {
             <Route path="/config">
               <ConfigPage />
             </Route>
-            <Route path="/modules/:id">
-              modulesId
+            <Route path="/:id">
+              <ModulePage />
             </Route>
             <Route path="/">
               <Home />

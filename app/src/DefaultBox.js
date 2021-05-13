@@ -11,7 +11,7 @@ export default function DefaultBox({ name }) {
       }}
     >
       <p>This is `DefaultBox` from the `app` package</p>
-      <p>Hello, {name}!</p>
+      <p>Goodbye, {name}!</p>
     </div>
   );
 }

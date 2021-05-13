@@ -34,7 +34,7 @@ export default function App() {
             <Route path="/">
               <div>
                 <h1>App architecture PoC based on Module Federation</h1>
-                <Box name="Team" />
+                <Box name="team ❤️" />
               </div>
             </Route>
           </Switch>

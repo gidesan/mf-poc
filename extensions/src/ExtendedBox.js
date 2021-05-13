@@ -12,7 +12,7 @@ export default function ExtendedBox({ name }) {
       }}
     >
       <p>This is `ExtendedBox` component from `extensions` package.</p>
-      <p>Hello, {name}!</p>
+      <p>Goodbye, {name}!</p>
     </div>
   );
 }

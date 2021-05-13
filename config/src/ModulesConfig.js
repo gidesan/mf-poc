@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import { InstalledModulesContext } from './InstalledModulesContext';
 
-const federatedImport = import('api/modules');
-
 export default function ModulesConfig() {
 
   const { modules, installModule, uninstallModule } = useContext(InstalledModulesContext);

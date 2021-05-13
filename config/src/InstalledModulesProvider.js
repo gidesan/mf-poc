@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { InstalledModulesContext } from './InstalledModulesContext';
 
-const federatedImport = import('api/modules');
+const remoteApiModules = import('api/modules');
 
 export default function InstalledModulesProvider({ children }) {
   const [modules, setModules] = useState([]);
@@ -11,7 +11,7 @@ export default function InstalledModulesProvider({ children }) {
   useEffect(() => {
     async function init() {
       try {
-        const apiModules = await federatedImport;
+        const apiModules = await remoteApiModules;
         const { fetchModules } = apiModules;
         
         installModule.current = async(id) => {

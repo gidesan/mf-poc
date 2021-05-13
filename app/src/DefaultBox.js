@@ -10,7 +10,7 @@ export default function DefaultBox({ name }) {
         padding: '20px',
       }}
     >
-      <p>This is `DefaultBox` from the `shell` package</p>
+      <p>This is `DefaultBox` from the `app` package</p>
       <p>Hello, {name}!</p>
     </div>
   );

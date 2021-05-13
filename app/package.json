@@ -1,5 +1,5 @@
 {
-  "name": "@dynamic-remotes/shell",
+  "name": "@dynamic-remotes/app",
   "version": "0.0.0",
   "private": true,
   "devDependencies": {
